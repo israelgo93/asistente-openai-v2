@@ -1,5 +1,5 @@
 
-# Guía Rápida de la API de Asistentes de OpenAI
+# Inicio Rapido API Beta de Asistentes de OpenAI v2
 
 Una plantilla de inicio rápido utilizando la [API de Asistentes de OpenAI](https://platform.openai.com/docs/assistants/overview) con [Next.js](https://nextjs.org/docs).
 <br/>
