@@ -1,73 +1,65 @@
-# OpenAI Assistants API Quickstart
 
-A quick-start template using the OpenAI [Assistants API](https://platform.openai.com/docs/assistants/overview) with [Next.js](https://nextjs.org/docs).
-<br/>
-<br/>
-![OpenAI Assistants API Quickstart](https://github.com/openai/openai-assistants-quickstart/assets/27232/755e85e9-3ea4-421f-b202-3b0c435ea270)
+# Guía Rápida de la API de Asistentes de OpenAI
 
-## Quickstart Setup
+Una plantilla de inicio rápido utilizando la [API de Asistentes de OpenAI](https://platform.openai.com/docs/assistants/overview) con [Next.js](https://nextjs.org/docs).
 
-### 1. Clone repo
+## Configuración Rápida
+
+### 1. Clonar repositorio
 
 ```shell
 git clone https://github.com/openai/openai-assistants-quickstart.git
 cd openai-assistants-quickstart
 ```
 
-### 2. Set your [OpenAI API key](https://platform.openai.com/api-keys)
+### 2. Establece tu [clave API de OpenAI](https://platform.openai.com/api-keys)
 
 ```shell
 export OPENAI_API_KEY="sk_..."
 ```
 
-(or in `.env.example` and rename it to `.env`).
+(o en `.env.example` y renómbralo a `.env`).
 
-### 3. Install dependencies
+### 3. Instalar dependencias
 
 ```shell
 npm install
 ```
 
-### 4. Run
+### 4. Ejecutar
 
 ```shell
 npm run dev
 ```
 
-### 5. Navigate to [http://localhost:3000](http://localhost:3000).
+### 5. Navega a [http://localhost:3000](http://localhost:3000).
 
-## Deployment
+## Despliegue
 
-You can deploy this project to Vercel or any other platform that supports Next.js.
+Puedes desplegar este proyecto en Vercel o en cualquier otra plataforma que soporte Next.js.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fopenai%2Fopenai-assistants-quickstart&env=OPENAI_API_KEY,OPENAI_ASSISTANT_ID&envDescription=API%20Keys%20and%20Instructions&envLink=https%3A%2F%2Fgithub.com%2Fopenai%2Fopenai-assistants-quickstart%2Fblob%2Fmain%2F.env.example)
+## Visión General
 
-## Overview
+Este proyecto tiene como objetivo servir de plantilla para utilizar la API de Asistentes en Next.js con transmisión, uso de herramientas (intérprete de código y búsqueda de archivos), y llamadas a funciones. Aunque hay varias páginas para demostrar cada una de estas capacidades, todas utilizan el mismo asistente subyacente con todas las capacidades activadas.
 
-This project is intended to serve as a template for using the Assistants API in Next.js with [streaming](https://platform.openai.com/docs/assistants/overview/step-4-create-a-run), tool use ([code interpreter](https://platform.openai.com/docs/assistants/tools/code-interpreter) and [file search](https://platform.openai.com/docs/assistants/tools/file-search)), and [function calling](https://platform.openai.com/docs/assistants/tools/function-calling). While there are multiple pages to demonstrate each of these capabilities, they all use the same underlying assistant with all capabilities enabled.
+La lógica principal para el chat se encontrará en el componente `Chat` en `app/components/chat.tsx`.
 
-The main logic for chat will be found in the `Chat` component in `app/components/chat.tsx`, and the handlers starting with `api/assistants/threads` (found in `api/assistants/threads/...`). Feel free to start your own project and copy some of this logic in! The `Chat` component itself can be copied and used directly, provided you copy the styling from `app/components/chat.module.css` as well.
+### Páginas
 
-### Pages
+- Ejemplo Básico de Chat: [http://localhost:3000/examples/basic-chat](http://localhost:3000/examples/basic-chat)
+- Ejemplo de Llamadas a Funciones: [http://localhost:3000/examples/function-calling](http://localhost:3000/examples/function-calling)
+- Ejemplo de Búsqueda de Archivos: [http://localhost:3000/examples/file-search](http://localhost:3000/examples/file-search)
+- Ejemplo Completo: [http://localhost:3000/examples/all](http://localhost:3000/examples/all)
 
-- Basic Chat Example: [http://localhost:3000/examples/basic-chat](http://localhost:3000/examples/basic-chat)
-- Function Calling Example: [http://localhost:3000/examples/function-calling](http://localhost:3000/examples/function-calling)
-- File Search Example: [http://localhost:3000/examples/file-search](http://localhost:3000/examples/file-search)
-- Full-featured Example: [http://localhost:3000/examples/all](http://localhost:3000/examples/all)
+### Componentes Principales
 
-### Main Components
+- `app/components/chat.tsx` - maneja la renderización del chat, transmisión, y reenvío de llamadas a funciones
+- `app/components/file-viewer.tsx` - maneja la subida, obtención y eliminación de archivos para búsqueda de archivos
 
-- `app/components/chat.tsx` - handles chat rendering, [streaming](https://platform.openai.com/docs/assistants/overview?context=with-streaming), and [function call](https://platform.openai.com/docs/assistants/tools/function-calling/quickstart?context=streaming&lang=node.js) forwarding
-- `app/components/file-viewer.tsx` - handles uploading, fetching, and deleting files for [file search](https://platform.openai.com/docs/assistants/tools/file-search)
+### Puntos de Acceso
 
-### Endpoints
-
-- `api/assistants` - `POST`: create assistant (only used at startup)
-- `api/assistants/threads` - `POST`: create new thread
-- `api/assistants/threads/[threadId]/messages` - `POST`: send message to assistant
-- `api/assistants/threads/[threadId]/actions` - `POST`: inform assistant of the result of a function it decided to call
-- `api/assistants/files` - `GET`/`POST`/`DELETE`: fetch, upload, and delete assistant files for file search
-
-## Feedback
-
-Let us know if you have any thoughts, questions, or feedback in [this form](https://docs.google.com/forms/d/e/1FAIpQLScn_RSBryMXCZjCyWV4_ebctksVvQYWkrq90iN21l1HLv3kPg/viewform?usp=sf_link)!
+- `api/assistants` - `POST`: crear asistente (solo se usa al inicio)
+- `api/assistants/threads` - `POST`: crear nuevo hilo
+- `api/assistants/threads/[threadId]/messages` - `POST`: enviar mensaje al asistente
+- `api/assistants/threads/[threadId]/actions` - `POST`: informar al asistente del resultado de una función que decidió llamar
+- `api/assistants/files` - `GET`/`POST`/`DELETE`: buscar, subir y eliminar archivos de asistente para búsqueda de archivos
