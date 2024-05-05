@@ -10,8 +10,8 @@ Una plantilla de inicio rápido utilizando la [API de Asistentes de OpenAI](http
 ### 1. Clonar repositorio
 
 ```shell
-git clone https://github.com/openai/openai-assistants-quickstart.git
-cd openai-assistants-quickstart
+git clone https://github.com/israelgo93/asistente-openai-v2.git
+cd asistente-openai-v2
 ```
 
 ### 2. Establece tu [clave API de OpenAI](https://platform.openai.com/api-keys)
