@@ -30,8 +30,8 @@ const FunctionCalling = () => {
       <div className={styles.container}>
         <div className={styles.column}>
           <WeatherWidget
-            location={weatherData.location || "---"}
-            temperature={weatherData.temperature?.toString() || "---"}
+            location={weatherData.location ?? "---"}
+            temperature={weatherData.temperature?.toString() ?? "---"}
             conditions={weatherData.conditions ?? "Sunny"}
             isEmpty={isEmpty}
           />
