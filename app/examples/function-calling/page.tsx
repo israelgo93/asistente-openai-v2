@@ -32,7 +32,7 @@ const FunctionCalling = () => {
           <WeatherWidget
             location={weatherData.location || "---"}
             temperature={weatherData.temperature?.toString() || "---"}
-            conditions={weatherData.conditions || "Sunny"}
+            conditions={weatherData.conditions ?? "Sunny"}
             isEmpty={isEmpty}
           />
         </div>
